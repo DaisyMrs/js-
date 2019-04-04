@@ -1,0 +1,29 @@
+将JSON字符串解析成JSON对象
+	var str1 = '{"name":"cxh","sex":"man"}';
+	var obj = eval("('+str+)");
+	var obj = JSON.parse(str);
+
+ //URL传参 URL后面的参数解析成对象
+    var box = "https://www.baidu.com/login?name=jack&age=100&nice=123456";
+    
+    function parseUrl(url) {
+        var url = url.split("?")[1];
+        var params = url.split("&");  //["name=jack", "age=100"]
+        var arr = [];
+        var res = {};
+        for(var i=0;i<params.length;i++){
+          arr = params[i].split("=");  //["name", "jack"]  ["age", "100"]
+          res[arr[0]] = arr[1];
+        }
+        return res;
+    }
+    console.log(parseUrl(box));
+
+cros跨域问题
+CORS 实现思路：CORS背后的基本思想是使用自定义的HTTP头部允许浏览器和服务器相互了解对方，从而决定请求或响应成功与否
+
+使用node.js代理接口
+第一步：引入request
+	var request = require('request');
+第二步：对应的路径下发送请求
+	

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //URL传参 URL后面的参数解析成对象
+    var box = "https://www.baidu.com/login?name=jack&age=100&nice=123456";
+    
+    function parseUrl(url) {
+        var url = url.split("?")[1];
+        var params = url.split("&");  //["name=jack", "age=100"]
+        var arr = [];
+        var res = {};
+        for(var i=0;i<params.length;i++){
+          arr = params[i].split("=");  //["name", "jack"]  ["age", "100"]
+          res[arr[0]] = arr[1];
+        }
+        return res;
+    }
+    console.log(parseUrl(box));
+</script>
